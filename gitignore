@@ -1,0 +1,20 @@
+# RStudio project files — user-specific, not meant to be shared
+.Rproj.user/
+*.Rproj
+
+# R session files — regenerated automatically every session
+.RData
+.Rhistory
+.Rapp.history
+
+# Generated data files — produced by cleaning_analyzing.R, not source files
+data/*.rds
+results/*.rds
+
+# Figures — produced by final_plots.R
+figures/*.pdf
+figures/*.png
+
+# OS junk
+.DS_Store
+Thumbs.db
