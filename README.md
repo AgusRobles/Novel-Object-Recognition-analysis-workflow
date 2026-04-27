@@ -50,7 +50,7 @@ Place your raw data file at `raw_data/test_dataset.csv`. The script expects the 
 |---|---|---|
 | `Animal` | factor | Unique animal identifier |
 | `Sex` | factor | `"F"` or `"M"` |
-| `Treatment` | factor | `"1_min"` or `"3_min"` (inter-trial interval) |
+| `Treatment` | factor | `"A"` or `"B"` |
 | `Session` | factor | `"TR"` (training) or `"TS"` (test) |
 | `Type_object` | factor | `"Fam"` (familiar) or `"Nov"` (novel) |
 | `Object` | character | Object identity label |
