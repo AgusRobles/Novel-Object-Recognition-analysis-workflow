@@ -1,6 +1,6 @@
 # Novel Object Recognition — Analysis Workflow
 
-This repository contains the full analysis pipeline for a Novel Object Recognition (NOR) task, from raw data cleaning to final publication-ready figures. It is structured as an RProject and covers data wrangling, descriptive statistics, mixed-effects modelling, and consistent ggplot2 visualisations.
+This repository contains the full analysis pipeline for a Novel Object Recognition (NOR) behavioral experiment, from raw data cleaning to final publication-ready figures. It is structured as an RProject and covers data wrangling, descriptive statistics, mixed-effects modelling, and consistent ggplot2 visualisations.
 
 > **A small simulated dummy dataset is included in `raw_data/`** so you can run the workflow out of the box and explore the outputs. When you are ready to use your own data, replace the dummy file with your own CSV — just make sure it follows the column structure described in [Input data format](#input-data-format).
 
