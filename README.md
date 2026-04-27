@@ -163,12 +163,12 @@ All plots share the same color scheme (defined in `themes.R`) and the same theme
 
 ### `Functions/statistics_functions.R`
 
-**`descriptive(data, grups, variable)`**
+**`descriptive(data, groups, variable)`**
 Computes summary statistics for a numeric variable grouped by one or more columns.
 - `data` — a dataframe
-- `grups` — character vector of grouping column names, e.g. `c("Treatment", "Type_object")`
+- `groups` — character vector of grouping column names, e.g. `c("Treatment", "Type_object")`
 - `variable` — character string naming the response variable, e.g. `"Exploration"`
-- Returns a dataframe with columns: `n`, `avg`, `SE` (SD), `min`, `max`, `var`, `sem`
+- Returns a dataframe with columns: `n`, `avg`, `SD`, `min`, `max`, `var`, `sem`
 
 **`assumptions(model)`**
 Visual and statistical assumption checks for `lmer` and `lm` models.
