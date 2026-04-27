@@ -142,7 +142,8 @@ plot_behavior(
 
 - `"total"` — jitter plot of any numeric column (specified via `y_var`) by `Treatment`.
 
-<img width="2000" height="657" alt="image" src="https://github.com/user-attachments/assets/56c90462-f29e-42ce-a5f2-0b95f2d79050" />
+<img width="2000" height="697" alt="image" src="https://github.com/user-attachments/assets/e2c4dd9d-2b5b-4f4a-87c5-9f257b4fc66c" />
+
 
 All plots share the same color scheme (defined in `themes.R`) and the same theme (`custom_theme()`), which automatically shows or hides x-axis text depending on whether the x axis is an interaction term or a simple factor.
 
