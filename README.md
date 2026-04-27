@@ -29,7 +29,7 @@ project/
 ## Setup
 
 1. Clone or download this repository.
-2. Open the `.Rproj` file in RStudio. **All file paths in the scripts are relative to the project root**, so the RProject must be open for them to work correctly.
+2. Create a R project (`.Rproj` file in RStudio) in the repository folder. **All file paths in the scripts are relative to the project root**, so the RProject must be open for them to work correctly.
 3. Install required packages (see `Functions/load_packages.R`). Key dependencies are:
 
    - `tidyverse` — data wrangling and ggplot2
@@ -72,7 +72,7 @@ Run this script first. It covers the full analysis pipeline and saves all output
 - Splits the data by session into `TS_data` (test) and `TR_data` (training).
 
 **2. Discrimination index (DI) calculation**
-- Reshapes the data from long to wide format (one row per animal per session) using `tidyr::spread()`.
+- Reshapes the data from long to wide format (one row per animal per session) using `tidyr::pivot_wider()`.
 - Computes three new columns:
   - `Total` — total exploration time (`Nov + Fam`)
   - `beta_di` — proportion of time spent exploring the novel object (`Nov / Total`), used as the model outcome (bounded 0–1, suitable for beta regression)
@@ -189,8 +189,3 @@ Subsets `treatment_palette` to only the levels actually present in `data`, so un
 
 ---
 
-## Notes and known issues
-
-- `cleaning_analyzing.R` originally used `tidyr::spread()`, now updated to `tidyr::pivot_wider()`: `pivot_wider(data2, names_from = Type_object, values_from = Exploration)`.
-- Model `model04` in `cleaning_analyzing.R` contains a typo in the `emmeans` call (`emmeans(modelo04, ...)` — note the Spanish name). This will throw an error; change `modelo04` to `model04`.
-- The `descriptive()` function names the standard deviation column `SE` but it is actually the SD — `sem` (computed afterwards as `SE / sqrt(n)`) is the standard error. Consider renaming `SE` to `SD` for clarity.
