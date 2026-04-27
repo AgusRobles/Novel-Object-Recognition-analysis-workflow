@@ -1,26 +1,7 @@
-# NOR Behavioral Analysis
-
-## Overview
-
-This project contains scripts and functions for the analysis of Novel Object Recognition (NOR) behavioral experiments.
-The workflow is designed to maximize reproducibility and automation by separating reusable functions from experiment-specific analysis scripts.
-
-The repository includes:
-
-- Functions for data processing and descriptive statistics
-
-- Functions for statistical analysis and assumption testing
-
-- Custom visualization tools and plotting themes
-
-- Scripts that execute the full analysis pipeline for specific experiments
-
-The goal is to provide a standardized framework for analyzing NOR datasets while minimizing repetitive coding and ensuring consistent statistical and graphical outputs.
-
 # Novel Object Recognition — Analysis Workflow
 
 This repository contains the full analysis pipeline for a Novel Object Recognition (NOR) task, from raw data cleaning to final publication-ready figures. It is structured as an RProject and covers data wrangling, descriptive statistics, mixed-effects modelling, and consistent ggplot2 visualisations.
-
+> **A small simulated dummy dataset is included in `raw_data/`** so you can run the workflow out of the box and explore the outputs. When you are ready to use your own data, replace the dummy file with your own CSV — just make sure it follows the column structure described in [Input data format](#input-data-format).
 
 ---
 
@@ -88,7 +69,7 @@ Run this script first. It covers the full analysis pipeline and saves all output
 - Splits the data by session into `TS_data` (test) and `TR_data` (training).
 
 **2. Discrimination index (DI) calculation**
-- Reshapes the data from long to wide format (one row per animal per session) using `tidyr::spread()`.
+- Reshapes the data from long to wide format (one row per animal per session) using `tidyr::pivot_wider()`.
 - Computes three new columns:
   - `Total` — total exploration time (`Nov + Fam`)
   - `beta_di` — proportion of time spent exploring the novel object (`Nov / Total`), used as the model outcome (bounded 0–1, suitable for beta regression)
@@ -152,11 +133,16 @@ plot_behavior(
 
 **Plot types:**
 
-- `"exploration"` — paired jitter + line plot showing exploration time for familiar and novel objects, with mean ± SEM overlay. X axis shows the interaction of `Type_object × Treatment`.[Exploration by object.pdf](https://github.com/user-attachments/files/27117944/Exploration.by.object.pdf)
+- `"exploration"` — paired jitter + line plot showing exploration time for familiar and novel objects, with mean ± SEM overlay. X axis shows the interaction of `Type_object × Treatment`.
+<img width="2100" height="2100" alt="Exploration by object" src="https://github.com/user-attachments/assets/719faff0-a7d0-4069-8531-68c4cbe55e6e" />
 
-- `"DI"` — jitter plot of `beta_di × 100` by `Treatment`, with a dashed reference line at 50% (chance level).[DI.pdf](https://github.com/user-attachments/files/27117950/DI.pdf)
 
-- `"total"` — jitter plot of any numeric column (specified via `y_var`), in this case total exploration time, by `Treatment`.[Total exploration time.pdf](https://github.com/user-attachments/files/27117968/Total.exploration.time.pdf)
+- `"DI"` — jitter plot of `beta_di × 100` by `Treatment`, with a dashed reference line at 50% (chance level).
+<img width="1650" height="2100" alt="DI" src="https://github.com/user-attachments/assets/4f8c2a5d-cf7a-4ff1-ba61-201a24aa93a9" />
+
+
+- `"total"` — jitter plot of any numeric column (specified via `y_var`), in this case total exploration time, by `Treatment`.
+<img width="1650" height="2100" alt="Total exploration time" src="https://github.com/user-attachments/assets/5e0e0b3d-cced-43ee-b29f-0c7f2956070d" />
 
 
 All plots share the same color scheme (defined in `themes.R`) and the same theme (`custom_theme()`), which automatically shows or hides x-axis text depending on whether the x axis is an interaction term or a simple factor.
