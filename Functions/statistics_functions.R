@@ -28,12 +28,12 @@ assumptions <- function(model) {
 # Descriptive statistics
 
 #' @param data Dataframe
-#' @param grups Variables used to group the analysis written as a vector: c("")
+#' @param groups Variables used to group the analysis written as a vector: c("")
 #' @param variable Response variable
 
-descriptive <- function(data, grups, variable) {
+descriptive <- function(data, groups, variable) {
   data %>% 
-    group_by(across(all_of(grups))) %>%
+    group_by(across(all_of(groups))) %>%
     summarise(n = length(.data[[variable]]), 
               avg = mean(.data[[variable]]), 
               SD = sd(.data[[variable]]), 
