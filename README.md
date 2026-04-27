@@ -138,15 +138,17 @@ plot_behavior(
 
 - `"exploration"` — paired jitter + line plot showing exploration time for familiar and novel objects, with mean ± SEM overlay. X axis shows the interaction of `Type_object × Treatment`.
 
-![Exploration time plot](figures/exploration_TS.png)
+<img width="2100" height="2100" alt="Exploration by object" src="https://github.com/user-attachments/assets/1b5e57da-9dd4-46c2-aa99-e5ab99a41e0b" />
 
 - `"DI"` — jitter plot of `beta_di × 100` by `Treatment`, with a dashed reference line at 50% (chance level).
 
-![Discrimination index plot](figures/DI_TS.png)
+<img width="1650" height="2100" alt="DI" src="https://github.com/user-attachments/assets/767f4f24-24fa-41d8-a554-0732afc96f68" />
+
 
 - `"total"` — jitter plot of any numeric column (specified via `y_var`) by `Treatment`.
 
-![Total exploration time plot](figures/total_TS.png)
+<img width="1650" height="2100" alt="Total exploration time" src="https://github.com/user-attachments/assets/c8f73711-daa9-4e20-b8cc-a0da5f19df2a" />
+
 
 All plots share the same color scheme (defined in `themes.R`) and the same theme (`custom_theme()`), which automatically shows or hides x-axis text depending on whether the x axis is an interaction term or a simple factor.
 
